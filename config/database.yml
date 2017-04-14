@@ -1,0 +1,26 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  reconnect: true
+  username: postgres
+  password: cisin123
+  
+development:
+  <<: *default
+  database: jungle_app
+
+test:
+  <<: *default
+  database: jungle_app_test
+
+production:
+  <<: *default
+  database: jungle_app_prod
+
