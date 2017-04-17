@@ -1,0 +1,42 @@
+- model_class = Contact
+.row
+  .col-md-8
+    .page-header
+      %h1= t '.title', :default => model_class.model_name.human.pluralize.titleize
+  .col-md-4.mt-40    
+    = text_field_tag :query, "", class: "form-control", placeholder: "Search by Name", id: "search_contacts"
+    
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:age)
+      %th= t '.actions', :default => t("helpers.actions")
+  %tbody#contacts
+    = render "contacts"
+= link_to t('.new', :default => t("helpers.links.new")), 
+  new_contact_path,                                      
+  :class => 'btn btn-primary'                            
+
+- content_for :javascript do
+  %script
+    $("input#search_contacts").keydown(function(){
+    var query = $(this).val()
+    console.log(query)
+    if (query.length > 2){
+    $.get("/searches/search", { query: query });
+    }
+    })
+    $("input#search_contacts").keyup(function(){
+    var query = $(this).val()
+    console.log(query)
+    if (query.length == 0 || query.length > 2){
+    $.get("/searches/search", { query: query });
+    }
+    })
+
+
+
+
