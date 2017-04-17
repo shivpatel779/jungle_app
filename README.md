@@ -2,7 +2,7 @@
 
  Very easy to run this application on your system.
  
- First you need to have thesea are the prerequisite:
+ First you need to have some prerequisite:
  
  1) Ruby 2.3.0
  2) Postgres Databse
@@ -15,6 +15,6 @@
  5) rake db:migrate
  6) rails s
  
- 
+ Graet App is ready to run on http://localhost:3000/
  
 
