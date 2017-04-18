@@ -1,5 +1,7 @@
 class Contact < ApplicationRecord
   
+  validates_presence_of :name
+  
   include PgSearch
   pg_search_scope :whose_name_starts_with,
                   :against => :name,

@@ -58,4 +58,5 @@ gem "html2haml"
 gem 'pg_search'
 gem 'friendly_id'
 gem 'bootstrap-datepicker-rails'
-
+gem 'rails-controller-testing'
+gem 'rspec-activemodel-mocks'
