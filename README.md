@@ -10,10 +10,11 @@
  Now you need to run following commands:
  1) git clone https://github.com/shivpatel779/jungle_app.git
  2) cd jungle_app
- 3) bundle install
- 4) rake db:create
- 5) rake db:migrate
- 6) rails s
+ 3) bundle install: if you getting issues while running this command then manually add those gems.
+ 5) change the configuration of database.yml as per your database name, password and encoding can be utf8 or unicode.
+ 6) rake db:create
+ 7) rake db:migrate
+ 8) rails s
  
  Graet! App is ready to run on http://localhost:3000/
  
