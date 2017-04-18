@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
   def edit;end
 
   def create
-    parse_date(params)
+    parse_date(params) if params[:contact][:birthday].present?  
     @contact = current_user.contacts.new(contact_params)
     if @contact.save
       flash[:success] = 'Contact was successfully created.'
@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
   end
 
   def update
-    parse_date(params)
+    parse_date(params) if params[:contact][:birthday].present?  
     if @contact.update(contact_params)
       flash[:success] = 'Contact was successfully updated'
       redirect_to @contact
@@ -49,7 +49,7 @@ class ContactsController < ApplicationController
     end
 
     def parse_date(params)
-      birthday = DateTime.strptime(params[:contact][:birthday], "%m/%d/%Y")
+      birthday = DateTime.strptime(params[:contact][:birthday], "%m/%d/%Y") 
       params[:contact][:birthday] = birthday
     end
 end
