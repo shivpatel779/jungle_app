@@ -25,14 +25,14 @@
     $("input#search_contacts").keydown(function(){
     var query = $(this).val()
     console.log(query)
-    if (query.length > 2){
+    if (query.length > 0){
     $.get("/searches/search", { query: query });
     }
     })
     $("input#search_contacts").keyup(function(){
     var query = $(this).val()
     console.log(query)
-    if (query.length == 0 || query.length > 2){
+    if (query.length == 0 || query.length > 0){
     $.get("/searches/search", { query: query });
     }
     })
